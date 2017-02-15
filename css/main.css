@@ -1,0 +1,119 @@
+*{
+    box-sizing: border-box;
+}
+
+body, html, main {
+    height: 100%;   
+}
+
+
+
+#container {
+    max-width: 1250px;
+    height: 100%;
+}
+
+#header, flex-header {
+    background: #5042f4;
+}
+/*#5042f4*/
+#flex-header {
+    display: -webkit-flex;
+    display: flex;    
+    align-items: center;
+    justify-content:flex-end;
+    height: 50px;    
+}
+
+.flex-item-header-left {
+    margin-right: auto;
+    margin-left: 5%;
+}
+
+.flex-item-icon {
+    border-right: 1px solid black;
+    padding-right: 10px;
+}
+
+.flex-item-header {
+    margin-right: 3%;  
+    color: white;
+}
+
+.flex-item-user {
+    margin-right: 1.5%;
+    padding-left: 10px;
+}
+
+
+#main{
+  height: 100%; 
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;  
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+}
+
+#main img {
+    width: 20px;
+    height: 20px;
+}
+
+#tabs {
+width: 40px;
+background: #8A2BE2;
+display: -webkit-flex;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+width: 60px;
+}
+
+.tab-icons {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#dashboard {
+  background: aliceblue;
+ -ms-flex: 1;
+ -webkit-box-flex: 1;
+ -moz-box-flex: 1;
+ -ms-box-flex: 1;
+ box-flex: 1;  
+}
+
+@media (min-width: 768px ){
+    #flex-header {
+        height: 60px;  
+    }
+    
+    #tabs {
+        width: 60px;
+    }
+    
+    .tab-icons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+    #main img {
+    width: 30px;
+    height: 30px;
+}
+    
+    .flex-item-header-left {
+    margin-left: 3%;
+}
+    .flex-item-icon {
+        
+    }
+    
+    
+}
