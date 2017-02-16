@@ -14,14 +14,20 @@
 			<header id="header">
                 <div id="flex-header">
                     <div class="flex-item-header-left"><h1>Suresh's Web App</h1></div>
-                    <div class="flex-item-icon">
-                        <img src="images/icon-bell.svg" width="20px" height="20px">
+                    <div class="flex-item-icon dropdown">
+                       <a href="#" class="dropdown"> <img src="images/icon-bell.svg" width="20px" height="20px">
+                           <div id="myDropDown" class="">
+                                <p>Alert1: How you doing</p>
+                                <p>Alert2: What a lovely day</p>
+                             </div>
+                        </a>
                     </div>
                     <div class="flex-item-user">
                         <img src="images/user-pic.jpg" width="20px" height="20px">
                     </div>
                      <div class="flex-item-header"> <h2>Suresh Rao</h2></div>		
                 </div>
+              
 			</header>
 
 			<main>
@@ -60,18 +66,41 @@
              $("#alert").append(alertElement);
         }
           var $alert = $("<div id='alert1'></div>");
-          var $p = $("<p>Alert1: What a lovely day</p>");          
+          var $p = $("<p>Alert1: How you doing</p>");          
           $alert.append($p);
           addAlerts($alert);
+        
+            //Close the alert box
+             $(".close-button").click(function(){
+              $(this).parent().css('display','none');
+          });         
+       
             
-          $alert = $("<div id='alert2'></div>");
+   /*       $alert = $("<div id='alert2'></div>");
           $p = $("<p>Alert2: What a lovely day</p>");          
           $alert.append($p);
-          addAlerts($alert);
+          addAlerts($alert);*/
+        
+          
+
+          $('#myDropDown').hide();       
             
+            //Toggle the display of alert dropdown
+              $('.dropdown').click(function(event){
+                  event.stopPropagation();
+                  event.preventDefault();
+                   $('#myDropDown').toggle();          
+                  
+              });            
+            
+             //Close the alert dropdown on pressing "Esc" key
+               $(document).keyup(function(e) { 
+                    if (e.keyCode == 27) { // esc keycode
+                        $('#myDropDown').hide();
+                    }
+                });
+              
          
-          $(".close-button").click(function(){
-              $(this).parent().css('display','none');
-          });
+
         </script>
 	</body>
