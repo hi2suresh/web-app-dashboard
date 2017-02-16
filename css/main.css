@@ -1,4 +1,4 @@
-*{
+    *{
     box-sizing: border-box;
 }
 
@@ -17,12 +17,23 @@ body, html, main {
     background: #5042f4;
 }
 /*#5042f4*/
+
+#header {
+    height: 10%;
+    display: flex;
+    align-items: center;
+   
+}
+
+#main {
+    height: 90%;
+}
 #flex-header {
     display: -webkit-flex;
     display: flex;    
     align-items: center;
     justify-content:flex-end;
-    height: 50px;    
+     width: 100%;
 }
 
 .flex-item-header-left {
@@ -46,8 +57,7 @@ body, html, main {
 }
 
 
-#main{
-  height: 100%; 
+#main{  
   display: -ms-flexbox;
   display: -webkit-box;
   display: -moz-box;
@@ -66,14 +76,13 @@ body, html, main {
 }
 
 #tabs {
-width: 40px;
 background: #8A2BE2;
 display: -webkit-flex;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-start;
-width: 60px;
+width: 10%;
 }
 
 .tab-icons {
@@ -88,42 +97,67 @@ width: 60px;
  -moz-box-flex: 1;
  -ms-box-flex: 1;
  box-flex: 1;
-height: 100%;
+ width: 90%;
 }
 
-#dashboard-tab {
-    display: -webkit-flex;
+#dashboard-tab{   
     display: flex;
-    align-items: center;
-    justify-content:flex-end;
-    height: 15%;   
+/*    align-items: center;*/
 }
 
-#tab-heading {
-    margin-right: auto;
-    margin-left: 10px;
-    width: 10%;
-}
+ #tab-heading {
+    padding: 10px;
+     margin-right: auto;
+     
+    }
 
 #search {
-    margin-right: 10px;
-    background: lightgray;
-    width: 90%;
+    background: lightgray;   
     border-left: 1px solid red;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid red;    
+    text-align: right; 
+    padding: 10px;
+    flex-grow: 2;
+    
 }
+
 #search input {
-    border-radius: 5px;
+    border-radius: 5px;    
+    width: 50%;
+    
 }
-@media (min-width: 768px ){
-    #flex-header {
-        height: 60px;  
-    }
+
+/*Alert styles*/
+#alert {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+/*Close button*/
+.close-button {
+    content: 'X';
+    top: 5px;
+    position: absolute;
+    right: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: black;
+}
+
+#alert1, #alert2 {
+    background: purple;
+    position: relative;
+    border: 1px solid pink;
+    width: 100%;
     
+    padding: 10px;
+}
+
+@media (min-width: 768px ){    
+
     #tabs {
-        width: 60px;
+        width: 7%;
     }
-    
     .tab-icons {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -136,9 +170,13 @@ height: 100%;
     .flex-item-header-left {
     margin-left: 3%;
 }
-    #tab-heading {
-        margin-left: 30px;
+   
+/*
+   
+     #dashboard-tab {
+        height: 12%;
     }
+*/
     
     
 }

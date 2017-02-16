@@ -47,11 +47,31 @@
                             <div id="tab-heading"><h2>Dashboard</h2></div>
                             <div id="search"><input type="search" placeholder="Search"></div>
                         </div>
+                        <div id="alert"></div>
                     </div>
                  </div>
                                                                                      
 			</main>
-
-
 		</div>
+        <script>
+        function addAlerts(alertElement) {
+             var $a = $("<a href='#' class='close-button'>X</a>");
+             alertElement.append($a);
+             $("#alert").append(alertElement);
+        }
+          var $alert = $("<div id='alert1'></div>");
+          var $p = $("<p>Alert1: What a lovely day</p>");          
+          $alert.append($p);
+          addAlerts($alert);
+            
+          $alert = $("<div id='alert2'></div>");
+          $p = $("<p>Alert2: What a lovely day</p>");          
+          $alert.append($p);
+          addAlerts($alert);
+            
+         
+          $(".close-button").click(function(){
+              $(this).parent().css('display','none');
+          });
+        </script>
 	</body>
