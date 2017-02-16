@@ -28,7 +28,7 @@ body, html, main {
 #main {
     height: 90%;
 }
-#flex-header {
+#flex-header, #traffic {
     display: -webkit-flex;
     display: flex;    
     align-items: center;
@@ -171,6 +171,20 @@ width: 10%;
     padding: 10px;
 }
 
+/*Traffic Chart styles */
+.traffic-heading{
+    margin-right: auto;
+}
+.traffic-heading, .traffic-chart {
+    padding: 10px;
+}
+#traffic a:not(.last-traffic-link) {
+    padding-right: 2px;
+}
+
+#traffic a:active {
+    border: 2px solid green;
+}
 @media (min-width: 768px ){    
 
     #tabs {
@@ -187,6 +201,9 @@ width: 10%;
     
     .flex-item-header-left {
     margin-left: 3%;
+}
+    #traffic a:not(.last-traffic-link) {
+    padding-right: 30px;
 }
    
 /*
