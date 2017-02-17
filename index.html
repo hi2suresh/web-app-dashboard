@@ -56,7 +56,7 @@
                         </div>
                         <div id="alert"></div>
                         <div id="traffic">
-                         <div class="traffic-heading"><h1>Traffic</h1></div>
+                         <div class="traffic-heading"><h1>TRAFFIC</h1></div>
                          <div class="traffic-chart">
                             <a href="#">Hourly</a>
                              <a href="#">Daily</a>
@@ -65,14 +65,14 @@
                          </div>
                         </div>
                         <div id="traffic-canvas">
-                            <canvas id="myChart"></canvas>
+                            <canvas id="trafficChart"></canvas>
                         </div>
                         <div id="daily-mobile-chart">                         
                          <div class="daily-traffic">
-                            <canvas id="myChart1"></canvas>
+                            <canvas id="dailyTrafficChart"></canvas>
                          </div>
                          <div class="mobile-traffic">
-                            <canvas id="myChart2"></canvas>
+                            <canvas id="mobileChart"></canvas>
                          </div>
                         </div>
                     </div>
@@ -80,172 +80,5 @@
                                                                                      
 			</main>
 		</div>
-        <script>
-        function addAlerts(alertElement) {
-             var $a = $("<a href='#' class='close-button'>X</a>");
-             alertElement.append($a);
-             $("#alert").append(alertElement);
-        }
-          var $alert = $("<div id='alert1'></div>");
-          var $p = $("<p>Alert1: How you doing</p>");          
-          $alert.append($p);
-          addAlerts($alert);
-        
-            //Close the alert box
-             $(".close-button").click(function(){
-              $(this).parent().css('display','none');
-          });         
-       
-            
-   /*       $alert = $("<div id='alert2'></div>");
-          $p = $("<p>Alert2: What a lovely day</p>");          
-          $alert.append($p);
-          addAlerts($alert);*/
-        
-          
-
-          $('#myDropDown').hide();       
-            
-            //Toggle the display of alert dropdown
-              $('.dropdown').click(function(event){
-                  event.stopPropagation();
-                  event.preventDefault();
-                   $('#myDropDown').toggle();          
-                  
-              });            
-            
-             //Close the alert dropdown on pressing "Esc" key
-               $(document).keyup(function(e) { 
-                    if (e.keyCode == 27) { // esc keycode
-                        $('#myDropDown').hide();
-                    }
-                });
-            
-            var ctx = document.getElementById("myChart").getContext("2d");
-
-            var obj = {
-            type: 'line',
-            data: {
-                labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [500, 1000, 950, 1300, 1700, 1300, 1500, 1000, 1500, 2000, 1500],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1,
-                    fill:true
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:false
-                        }
-                    }]
-                },
-                  global: {
-                  responsive: true,
-                  maintainAspectRatio: false
-                }
-              
-
-            }
-        }
-            var myChart = new Chart(ctx, obj );
-            
-            obj = {
-            type: 'bar',
-            data: {
-                labels: ["S", "M", "T", "W", "TH", "F", "SU", "SA"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [50, 75, 150, 100, 200, 175, 75],
-                    backgroundColor: [
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6'
-                    ],                
-                    borderWidth: 1,
-                    fill:false
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:false
-                        }
-                    }]
-                },
-                  global: {
-                  responsive: true,
-                  maintainAspectRatio: false
-                }
-              
-
-            }
-        }
-            ctx = document.getElementById("myChart1").getContext("2d");
-            var myChart2 = new Chart(ctx, obj );
-            
-            
-            obj = {
-            type: 'pie',
-            data: {
-                labels: ["S", "M", "T", "W", "TH", "F", "SU", "SA"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [50, 75, 150, 100, 200, 175, 75],
-                    backgroundColor: [
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6',
-                        '#ADBFE6'
-                    ],                
-                    borderWidth: 1,
-                    fill:false
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:false
-                        }
-                    }]
-                },
-                  global: {
-                  responsive: true,
-                  maintainAspectRatio: false
-                }
-              
-
-            }
-        }
-            ctx = document.getElementById("myChart2").getContext("2d");
-            var myChart3 = new Chart(ctx, obj);
-
-        </script>
+        <script src="js/main.js"></script>
 	</body>
