@@ -25,9 +25,6 @@ body, html, main {
    
 }
 
-#main {
-    height: 90%;
-}
 #flex-header, #traffic {
     display: -webkit-flex;
     display: flex;    
@@ -185,6 +182,18 @@ width: 10%;
 #traffic a:active {
     border: 2px solid green;
 }
+
+#daily-mobile-chart {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+
+#daily-mobile-chart > div {
+    width: 50%;
+    padding: 10px;
+}
 @media (min-width: 768px ){    
 
     #tabs {
@@ -204,14 +213,8 @@ width: 10%;
 }
     #traffic a:not(.last-traffic-link) {
     padding-right: 30px;
-}
-   
-/*
-   
-     #dashboard-tab {
-        height: 12%;
-    }
-*/
+} 
+
     
     
 }
