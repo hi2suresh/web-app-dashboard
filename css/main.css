@@ -25,7 +25,7 @@ body, html, main {
    
 }
 
-#flex-header, #traffic {
+#flex-header {
     display: -webkit-flex;
     display: flex;    
     align-items: center;
@@ -169,18 +169,26 @@ width: 10%;
 }
 
 /*Traffic Chart styles */
-.traffic-heading{
-    margin-right: auto;
-}
-.traffic-heading, .traffic-chart {
-    padding: 10px;
-}
-#traffic a:not(.last-traffic-link) {
-    padding-right: 2px;
+
+#traffic {
+    display: -webkit-flex;
+    display: flex;    
+    align-items: center;
+    justify-content:space-around;
+     width: 100%;
 }
 
-#traffic a:active {
+#traffic a {
+    text-decoration: none;
+}
+
+
+.active-link {
 /*    border: 2px solid green;*/
+    background: green;
+    color: white;
+    border-radius: 10px;
+
 }
 
 #traffic-canvas{
@@ -204,6 +212,75 @@ width: 10%;
     padding: 10px;
 }
 
+/*Social Stats Styles*/
+
+ #social-stats {
+    display: -webkit-flex;
+    display: flex;    
+    align-items: center;
+    flex-flow: row wrap;
+    border-bottom: 1px solid black;    
+
+}
+
+#social-stats-text {
+    padding: 10px;
+}
+
+#twitter-stats, #facebook-stats, #google-stats {
+   
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    flex-grow: 1;
+
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 20px;
+
+}
+
+
+#social-stats  img {
+    background: darkblue;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    
+}
+
+#twitter-stats h2:nth-of-type(1), #facebook-stats h2:nth-of-type(1), #google-stats h2:nth-of-type(1) {
+ color: darkblue;
+}
+
+#twitter-stats h2:nth-of-type(2), #facebook-stats h2:nth-of-type(2), #google-stats h2:nth-of-type(2) {
+ font-size: 1.8em;
+}
+
+#members-activity{
+    display: -webkit-flex;
+    display: flex;
+/*    align-items: center;*/
+    flex-flow: row wrap;
+    
+}
+
+#new-members, #recent-activity {
+ margin: 20px;
+ flex-grow: 1;
+}
+
+/*
+#recent-activity {
+    margin-top: 20px;
+    margin-right: 20px;
+    
+}
+*/
 
 @media (min-width: 768px ){    
 
@@ -222,8 +299,23 @@ width: 10%;
     .flex-item-header-left {
     margin-left: 3%;
 }
+    #traffic-chart {
+    font-size: 16px;
+}
+    #traffic {   
+    justify-content:flex-end;
+}
+    
+    .traffic-heading{
+    margin-right: auto;
+}
+.traffic-heading, .traffic-chart {
+    padding: 10px;
+}
+    
     
     #traffic a:not(.last-traffic-link) {
+    padding-left: 30px;
     padding-right: 30px;
 } 
     #traffic-canvas{
@@ -238,6 +330,13 @@ width: 10%;
     width: 50%;
     padding: 10px;
 }  
+    
+ #twitter-stats h2:nth-of-type(1), #facebook-stats h2:nth-of-type(1), #google-stats h2:nth-of-type(1) {
+/*  flex-basis: 80%;*/
+}
+#twitter-stats h2:nth-of-type(2), #facebook-stats h2:nth-of-type(2), #google-stats h2:nth-of-type(2) {
+/* margin-left: 50px;*/
+}
     
     
 }
