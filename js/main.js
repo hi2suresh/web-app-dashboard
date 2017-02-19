@@ -172,3 +172,91 @@ obj = {
 }
 ctx = document.getElementById("mobileChart").getContext("2d");
 var mobileChart = new Chart(ctx, obj);
+
+/*===============================================
+JS code to handle user members and recent activty
+================================================*/
+
+var userData =  [ {
+     
+          userDetails : {
+            imgSource : 'images/user-pic.jpg',
+            name : 'Victoria Berlin',
+            email: 'Victoria@gmail.com',
+            date : '1/10/2017'
+          },
+          activityDetails : {
+            activityName : "Victoria Berlin commented on facebook about Healthy Diet",
+            activityTime: '4 hours ago'
+          }
+        }, 
+                 {
+     
+          userDetails : {
+            imgSource : 'images/user-pic.jpg',
+            name : 'Chess Grandmasters',
+            email: 'Chessmasters@yahoo.com',
+            date : '1/10/2016'
+          },
+          activityDetails : {
+            activityName : 'Chess Grandmasters commented on chess world championship',
+            activityTime: '3 hours ago'
+          }
+        },
+           {      
+        userDetails : {
+            imgSource : 'images/user-pic.jpg',
+            name : 'Ray Hudson',
+            email: 'Ray@gmail.com',
+            date : '1/10/2015'
+          },
+          activityDetails : {
+            activityName : "Ray Hudson commented on ESPN about Champions League",
+            activityTime: '2 hours ago'
+          }
+        }        
+    ]
+
+var $newMembers = $("#new-members");
+var $recentActvity = $("#recent-activity");
+for(var i=0; i<userData.length; i++){    
+    var imgSource = userData[i].userDetails.imgSource;
+    var name = userData[i].userDetails.name;
+    var email = userData[i].userDetails.email;
+    var activityName = userData[i].activityDetails.activityName;
+    var actvityTime = userData[i].activityDetails.activityTime;
+    var $divElement = updateUserDetails('members-list', imgSource, name, email);    
+    var $h2Date = $('<p></p>');
+    $h2Date.text(userData[i].userDetails.date);
+    $divElement.append($h2Date);    
+    $newMembers.append($divElement);
+    
+    $divElement = updateUserDetails('activity-list', imgSource, activityName, actvityTime); 
+    var $arrow = $('<p></p>');
+    $arrow.text('>');
+    $divElement.append($arrow);    
+    $newMembers.append($divElement);    
+    $recentActvity.append($divElement);        
+}
+
+function updateUserDetails(className, imgSource, divDetail1, divDetail2){
+    var $divElement = $('<div></div>');
+    $divElement.addClass(className);
+    
+    var $img = $('<img></img>');
+    $img.attr('src', imgSource);
+    $divElement.append($img);
+     
+    var $internalDiv = $('<div></div>');
+    var $detail1 = $('<p></p>');
+    $detail1.text(divDetail1);
+    $internalDiv.append($detail1);
+    
+    var $detail2 = $('<p></p>');
+    $detail2.text(divDetail2);
+    $internalDiv.append($detail2);
+    
+    $divElement.append($internalDiv);
+    
+    return $divElement;  
+}
