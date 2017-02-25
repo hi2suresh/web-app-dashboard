@@ -28,7 +28,7 @@ $(document).keyup(function (e) {
     }
 });
 /*============================
-JS code to handle Charts/Graphs
+Code to handle Charts/Graphs
 ==============================*/
 //Chart global settings
 Chart.defaults.global.responsive = true;
@@ -174,7 +174,7 @@ ctx = document.getElementById("mobileChart").getContext("2d");
 var mobileChart = new Chart(ctx, obj);
 
 /*===============================================
-JS code to handle user members and recent activty
+Code to handle user members and recent activty
 ================================================*/
 
 var userData =  [ {
@@ -214,7 +214,21 @@ var userData =  [ {
             activityName : "Ray Hudson commented on ESPN about Champions League",
             activityTime: '2 hours ago'
           }
-        }        
+        }, 
+        
+           {      
+        userDetails : {
+            imgSource : 'images/user-pic.jpg',
+            name : 'Sid Lowe',
+            email: 'sid@gmail.com',
+            date : '1/10/2014'
+          },
+          activityDetails : {
+            activityName : "Sid Lowe wrote an excellent artcle on football worldcup",
+            activityTime: '5 hours ago'
+          }
+        }
+         
     ]
 
 var $newMembers = $("#new-members");
@@ -260,3 +274,25 @@ function updateUserDetails(className, imgSource, divDetail1, divDetail2){
     
     return $divElement;  
 }
+
+/*============================
+Code to handle User search
+==============================*/
+
+let userNames = [];
+for (let i=0; i< userData.length; i++){
+    userNames.push(userData[i].userDetails.name);
+}
+
+const searchComplete = new autoComplete({
+    selector: 'input[type="search"]',
+    minChars: 1,
+    source: function(term, suggest){
+        term = term.toLowerCase();
+        var choices = userNames;
+        var matches = [];
+        for (i=0; i<choices.length; i++)
+            if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+        suggest(matches);
+    }
+});
