@@ -7,6 +7,10 @@ body, html, main {
 }
 
 
+.clear-fix {
+    clear: both;
+}
+
 
 #container {
     max-width: 1250px;
@@ -25,10 +29,14 @@ body, html, main {
    
 }
 
-#flex-header {
+#flex-header, #tabs, #traffic, #social-stats,#twitter-stats, #facebook-stats, #google-stats, .members-list,
+.activity-list, #form-settings-pane{
     display: -webkit-flex;
-    display: flex;    
+    display: flex;
     align-items: center;
+}
+
+#flex-header {   
     justify-content:flex-end;
      width: 100%;
 }
@@ -74,10 +82,7 @@ body, html, main {
 
 #tabs {
 background: #8A2BE2;
-display: -webkit-flex;
-display: flex;
 flex-direction: column;
-align-items: center;
 justify-content: flex-start;
 width: 10%;
 }
@@ -170,10 +175,7 @@ width: 10%;
 
 /*Traffic Chart styles */
 
-#traffic {
-    display: -webkit-flex;
-    display: flex;    
-    align-items: center;
+#traffic {  
     justify-content:space-around;
      width: 100%;
 }
@@ -215,9 +217,6 @@ width: 10%;
 /*Social Stats Styles*/
 
  #social-stats {
-    display: -webkit-flex;
-    display: flex;    
-    align-items: center;
     flex-flow: row wrap;
     border-bottom: 1px solid black;    
 
@@ -233,10 +232,6 @@ width: 10%;
     border-radius: 5px;
     margin: 10px;
     flex-grow: 1;
-
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
     flex-flow: row wrap;
     padding: 20px;
 }
@@ -263,8 +258,7 @@ width: 10%;
     display: -webkit-flex;
     display: flex;
     flex-flow: column; 
-     border-bottom: 1px solid black;
-
+    border-bottom: 1px solid black;
 }
 
 #new-members, #recent-activity {
@@ -272,17 +266,44 @@ width: 10%;
  flex-grow: 1;
 }
 
-.members-list, .activity-list {
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;    
+
+.members-list, .activity-list {   
     padding: 20px 20px 20px 0;
     border-bottom: 1px solid black;
     flex-flow: column;
 }
 
+#recent-activity > div:last-child {
+    padding-bottom: 0;
+    border-bottom:none;
+}
+
 .members-list p:nth-child(2) {
     color: blue;
+}
+
+/*Form Settings Pane Styles*/
+#form-settings-pane {
+    flex-wrap: wrap;
+}
+#form-settings-pane > div{
+ flex-grow: 1;
+ padding: 10px;   
+}
+
+.form-elements{
+    width: 95%;   
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+
+#settings > div > div {
+    display: inline-block;
 }
 
 @media (min-width: 768px ){    
@@ -369,10 +390,19 @@ width: 10%;
 .members-list > div, .activity-list > div{
     padding-left: 20px;
 }
+
+   #form {
+        border-right: 1px solid black;    
+    }
+    
     
 }
 
 @media (min-width: 980px ){    
 
-    
+#new-members > div:last-child, #recent-activity > div:last-child {
+    padding-bottom: 0;
+    border-bottom:none;
+}
+
 }

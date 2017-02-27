@@ -8,8 +8,10 @@
 	    <script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/chart.js/2.2.1/Chart.bundle.min.js"></script>
         <script src="js/auto-complete.min.js"></script>        
+        <script src="js/toggles.min.js"></script>        
 	    <link rel="stylesheet" type="text/css" href="css/reset.css">
-        <link rel="stylesheet" type="text/css" href="js/auto-complete.css">
+        <link rel="stylesheet" type="text/css" href="js/css/auto-complete.css">
+        <link rel="stylesheet" type="text/css" href="js/css/toggles-full.css">
 	    <link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
@@ -112,6 +114,30 @@
                             <div id="recent-activity">
                                 <div><h2>RECENT ACTIVITY</h2></div>                              
                             </div>                        
+                        </div>
+                        <div id="form-settings-pane">
+                         <div id="form">
+                             <form>
+                              <h2>Message User</h2>
+                               <input type="search" placeholder="Search for user" class="form-elements" required>
+                                <textarea class="form-elements" required></textarea>
+                                 <button id="send" class="form-elements">Send</button>                             
+                             </form>
+                         </div>
+                         <div  id="settings">
+                             <h2>Settings</h2>
+                             <div class="clear-fix">
+                                 <span>Send Email Notifications</span>
+                                 <div class="toggle toggle-modern"></div>
+                             </div>
+                             <div class="clear-fix">
+                                 <span>Set Profile to Public</span>
+                                 <div class="toggle toggle-modern"></div>                             
+                                  </div>
+                             <div class="clear-fix"></div>                             
+                             <button id="save">Send</button>  
+                             <button id="cancel">Cancel</button>                              
+                         </div>
                         </div>
                     </div>
                  </div>

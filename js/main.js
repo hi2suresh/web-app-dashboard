@@ -296,3 +296,49 @@ const searchComplete = new autoComplete({
         suggest(matches);
     }
 });
+
+/*============================
+Code to handle Toggle button
+==============================*/
+$('.toggle').toggles({
+  drag: true, // allow dragging the toggle between positions
+  click: true, // allow clicking on the toggle
+  text: {
+    on: 'ON', // text for the ON position
+    off: 'OFF' // and off
+  },
+  on: true, // is the toggle ON on init
+  animate: 250, // animation time (ms)
+  easing: 'swing', // animation transition easing function
+  checkbox: null, // the checkbox to toggle (for use in forms)
+  clicker: null, // element that can be clicked on to toggle. removes binding from the toggle itself (use nesting)
+  width: 50, // width used if not set in css
+  height: 20, // height if not set in css
+  type: 'select' // if this is set to 'select' then the select style toggle will be used
+});
+
+/*============================
+Code to handle Message user widget
+==============================*/
+const form = document.getElementById('form');
+const sendButton = document.getElementById('send');
+const user = document.querySelector('form input');
+const userMessage = document.querySelector('form textarea');
+sendButton.addEventListener('click', function(e){
+    e.preventDefault();
+    //Remove the previous message if exists
+    let pElement = document.querySelector('#form p');
+    if(pElement !== null){
+        form.removeChild(pElement);    }
+    
+    pElement = document.createElement('p');
+    if( user.value && userMessage.value && userNames.indexOf(user.value) > -1){
+        pElement.textContent = "Message sent successfully";
+        pElement.style.color = 'green';
+    }
+    else {
+        pElement.textContent = " Message not sent! Please enter valid user and data"; 
+        pElement.style.color = 'red';
+    }
+    form.appendChild(pElement);
+});
