@@ -285,6 +285,7 @@ width: 10%;
 /*Form Settings Pane Styles*/
 #form-settings-pane {
     flex-wrap: wrap;
+    border-bottom: 1px solid black;
 }
 #form-settings-pane > div{
  flex-grow: 1;

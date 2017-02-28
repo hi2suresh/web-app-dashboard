@@ -335,10 +335,58 @@ sendButton.addEventListener('click', function(e){
     if( user.value && userMessage.value && userNames.indexOf(user.value) > -1){
         pElement.textContent = "Message sent successfully";
         pElement.style.color = 'green';
+        //Store the message in the local storage
+        storeMessage(userMessage.value);
+        //Clear the input data
+        user.value = "";
+        userMessage.value = "";
     }
     else {
         pElement.textContent = " Message not sent! Please enter valid user and data"; 
-        pElement.style.color = 'red';
+        pElement.style.color = 'red';                
     }
-    form.appendChild(pElement);
+    form.appendChild(pElement);   
+    
+});
+
+function clearMessages(parent, selector){
+    let pElements = document.querySelectorAll(selector);
+    if(pElements !== null){
+        for(var i=0; i<pElements.length; i++){
+            parent.removeChild(pElements[i]);
+        }
+     }
+}
+/*============================
+Code to handle Local storage
+==============================*/
+let messages = JSON.parse(localStorage.getItem('storedMessages'));
+if(messages === null){
+    messages = [];
+}
+function storeMessage(msg){   
+    messages.push(msg);
+    localStorage.setItem("storedMessages", JSON.stringify(messages));
+}
+
+function showMessages(){
+    const divMessages = document.getElementById('local-messages');
+    const msgs = JSON.parse(localStorage.getItem('storedMessages'));
+    //Remove the previously shown messages 
+    clearMessages(divMessages, '#local-messages p');
+    for(var i=0; i<msgs.length; i++){
+    var messageElement = document.createElement('p');
+    messageElement.style.color = 'blue';
+    messageElement.textContent = msgs[i];
+    divMessages.appendChild(messageElement);
+    }
+}
+
+const showMessagesButton = document.getElementById('show-messages');
+showMessagesButton.addEventListener('click', showMessages);
+
+const clearMessagesButton = document.getElementById('clear-messages');
+clearMessagesButton.addEventListener('click', function(){
+    const divMessages = document.getElementById('local-messages');
+    clearMessages(divMessages, '#local-messages p');
 });
