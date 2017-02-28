@@ -186,7 +186,7 @@ var userData =  [ {
             date : '1/10/2017'
           },
           activityDetails : {
-            activityName : "Victoria Berlin commented on facebook about Healthy Diet",
+            activityName : "Victoria commented on facebook",
             activityTime: '4 hours ago'
           }
         }, 
@@ -199,7 +199,7 @@ var userData =  [ {
             date : '1/10/2016'
           },
           activityDetails : {
-            activityName : 'Chess Grandmasters commented on chess world championship',
+            activityName : 'Chess visited youtube',
             activityTime: '3 hours ago'
           }
         },
@@ -211,7 +211,7 @@ var userData =  [ {
             date : '1/10/2015'
           },
           activityDetails : {
-            activityName : "Ray Hudson commented on ESPN about Champions League",
+            activityName : "Ray googled ESPN",
             activityTime: '2 hours ago'
           }
         }, 
@@ -224,7 +224,7 @@ var userData =  [ {
             date : '1/10/2014'
           },
           activityDetails : {
-            activityName : "Sid Lowe wrote an excellent artcle on football worldcup",
+            activityName : "Sid blogged on football",
             activityTime: '5 hours ago'
           }
         }
