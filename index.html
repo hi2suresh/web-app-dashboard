@@ -8,7 +8,7 @@
 	    <script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/chart.js/2.2.1/Chart.bundle.min.js"></script>
         <script src="js/auto-complete.min.js"></script>        
-        <script src="js/toggles.min.js"></script>        
+        <script src="js/toggles.min.js"></script>
 	    <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="js/css/auto-complete.css">
         <link rel="stylesheet" type="text/css" href="js/css/toggles-full.css">
@@ -20,7 +20,7 @@
                 <div id="flex-header">
                     <div class="flex-item-header-left"><h1>Suresh's Web App</h1></div>
                     <div class="flex-item-icon dropdown">
-                       <a href="#" class="dropdown"> <img src="images/icon-bell.svg" width="20px" height="20px">
+                       <a href="#" class="dropdown"> <img src="images/icon-bell.svg" width="20" height="20" alt="Bell Icon">
                            <div id="myDropDown" class="">
                                 <p>Alert1: How you doing</p>
                                 <p>Alert2: What a lovely day</p>
@@ -28,7 +28,7 @@
                         </a>
                     </div>
                     <div class="flex-item-user">
-                        <img src="images/user-pic.jpg" width="20px" height="20px">
+                        <img src="images/user-pic.jpg" width="20" height="20" alt="User Picture">
                     </div>
                      <div class="flex-item-header"> <h2>Suresh Rao</h2></div>		
                 </div>
@@ -40,16 +40,16 @@
                     <div id="tabs">
 
                        <div class="tab-icons">
-                            <img src="images/icon-dashboard.svg">
+                            <img src="images/icon-dashboard.svg" alt="Dashboard Icon">
                         </div>
                         <div class="tab-icons">
-                            <img src="images/icon-members.svg">
+                            <img src="images/icon-members.svg" alt="Members Icon">
                         </div>
                        <div class="tab-icons">
-                            <img src="images/icon-visits.svg" >
+                            <img src="images/icon-visits.svg" alt="Visits Icon">
                         </div>
                         <div class="tab-icons">
-                            <img src="images/icon-settings.svg">
+                            <img src="images/icon-settings.svg" alt="Settings Icon">
                         </div>
 
                    </div>
@@ -84,21 +84,21 @@
                         <div id="social-stats">
                             
                             <div id="twitter-stats">
-                                <img src="images/icon-twitter.svg" >
+                                <img src="images/icon-twitter.svg" alt="Twitter Icon">
                                 <div>
                                 <h2>Twitter</h2>
                                 <h2>10,395</h2>
                                 </div>
                             </div>
                             <div id="facebook-stats">
-                                <img src="images/icon-facebook.svg">
+                                <img src="images/icon-facebook.svg" alt="Facebook Icon">
                                 <div>
                                 <h2>Facebook</h2>
                                 <h2>8,739</h2>
                                 </div>
                             </div>
                             <div id="google-stats">
-                                <img src="images/icon-google-plus.svg">
+                                <img src="images/icon-google-plus.svg" alt="Google Icon">
                                 <div>
                                 <h2>Google+</h2>
                                 <h2>2,530</h2>
@@ -134,19 +134,44 @@
                                  <span>Set Profile to Public</span>
                                  <div class="toggle toggle-modern toggleDiv"></div>                             
                                   </div>
-                             <select settings-class>
-                                <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
-                                <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
-                                <option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
-                                <option timeZoneId="4" gmtAdjustment="GMT-09:00" useDaylightTime="1" value="-9">(GMT-09:00) Alaska</option>
-                                <option timeZoneId="5" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
-                                <option timeZoneId="6" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Tijuana, Baja California</option>
-                                <option timeZoneId="7" gmtAdjustment="GMT-07:00" useDaylightTime="0" value="-7">(GMT-07:00) Arizona</option>
-                                <option timeZoneId="8" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
-                                <option timeZoneId="9" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
-                            </select>
-                             <div>
-                             <button id="save">Save</button>  
+                             <select name="timezone">
+                                 <option value=""  selected="selected" disabled style="display:none;">Select Timezone</option>
+                                 <option value="-12" >(GMT -12:00) Eniwetok, Kwajalein</option>
+                                 <option value="-11" >(GMT -11:00) Midway Island, Samoa</option>
+                                <option value="-10" >(GMT -10:00) Hawaii</option>
+                                 <option value="-9"  >(GMT -9:00) Alaska</option>
+                                <option value="-8"  >(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                                <option value="-7"  >(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                                <option value="-6"  >(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                                <option value="-5"  >(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+                                <option value="-4.5">(GMT -4:30) Caracas</option>
+                                <option value="-4"  >(GMT -4:00) Atlantic Time (Canada), La Paz, Santiago</option>
+                                <option value="-3.5">(GMT -3:30) Newfoundland</option>
+                                <option value="-3"  >(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                                <option value="-2"  >(GMT -2:00) Mid-Atlantic</option>
+                                <option value="-1"  >(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+                                <option value="0"  >(GMT) Western Europe Time, London, Lisbon, Casablanca, Greenwich</option>
+                                <option value="1"   >(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+                                <option value="2"   >(GMT +2:00) Kaliningrad, South Africa, Cairo</option>
+                                <option value="3"   >(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                                <option value="3.5" >(GMT +3:30) Tehran</option>
+                                <option value="4"   >(GMT +4:00) Abu Dhabi, Muscat, Yerevan, Baku, Tbilisi</option>
+                                <option value="4.5" >(GMT +4:30) Kabul</option>
+                                <option value="5"   >(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                                <option value="5.5" >(GMT +5:30) Mumbai, Kolkata, Chennai, New Delhi</option>
+                                <option value="5.75">(GMT +5:45) Kathmandu</option>
+                                <option value="6"   >(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                                <option value="6.5" >(GMT +6:30) Yangon, Cocos Islands</option>
+                                <option value="7"   >(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                                <option value="8"   >(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                                <option value="9"   >(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                                <option value="9.5" >(GMT +9:30) Adelaide, Darwin</option>
+                                <option value="10"  >(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                                <option value="11"  >(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                                <option value="12"  >(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+                             </select>
+                             <div class="settings-button">
+                             <button id="save">Save </button>  
                              <button id="cancel">Cancel</button>
                              </div>
                          </div>

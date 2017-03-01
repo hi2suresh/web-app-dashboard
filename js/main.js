@@ -186,7 +186,7 @@ var userData =  [ {
             date : '1/10/2017'
           },
           activityDetails : {
-            activityName : "Victoria commented on facebook",
+            activityName : "Victoria checked facebook",
             activityTime: '4 hours ago'
           }
         }, 
@@ -346,7 +346,7 @@ sendButton.addEventListener('click', function(e){
         pElement.style.color = 'red';                
     }
     form.appendChild(pElement);   
-    
+  
 });
 
 function clearMessages(parent, selector){
@@ -357,6 +357,10 @@ function clearMessages(parent, selector){
         }
      }
 }
+
+//Select Timezone
+//$('select').timezones();
+
 /*============================
 Code to handle Local storage
 ==============================*/

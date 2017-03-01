@@ -1,4 +1,4 @@
-    *{
+   *{
     box-sizing: border-box;
 }
 
@@ -11,6 +11,11 @@ body, html, main {
     clear: both;
 }
 
+/*
+h2, p, span {
+    font-family: 'verdana', sans-serif;
+}
+*/
 
 #container {
     max-width: 1250px;
@@ -300,7 +305,7 @@ width: 10%;
     padding-bottom: 10px;
 }
 
-#form input, #form textarea, #form button {
+#form input, #form textarea {
     width: 100%;
     padding-bottom: 10px;
     margin-bottom: 10px;
@@ -320,25 +325,31 @@ width: 10%;
     display: flex;
     align-content: center;
     padding-bottom: 20px;
-
-    
+/*    width: 80%;*/
 }
 
-.settings-notifications span {
-   flex-grow: 1;
-}
-.settings-class {
-    padding-bottom: 20px;
+.settings-notifications > div {
+    margin-left: auto;
 }
 
-#settings button {
-    width: 45%;
-    margin-top: 20px;
-    border-radius: 5px;
+#settings > select {
+    padding: 5px;
+    border-radius: 3px;
+    width: 98% !important;
 }
 
+.settings-button {
+    display: -webkit-flex;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
 
-
+.settings-button > button {
+    flex-grow: 1;
+    height: 40px;
+}
 @media (min-width: 768px ){    
 
     #tabs {
@@ -387,13 +398,6 @@ width: 10%;
     width: 50%;
     padding: 10px;
 }  
-    
- #twitter-stats h2:nth-of-type(1), #facebook-stats h2:nth-of-type(1), #google-stats h2:nth-of-type(1) {
-/*  flex-basis: 80%;*/
-}
-#twitter-stats h2:nth-of-type(2), #facebook-stats h2:nth-of-type(2), #google-stats h2:nth-of-type(2) {
-/* margin-left: 50px;*/
-}
 
 #members-activity{ 
     flex-flow: row wrap;    
@@ -445,31 +449,33 @@ width: 10%;
         padding: 20px;
     }
     
-    #form input, #form textarea, #form button {
+    #form input, #form textarea {
     width: 100%;
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
     #form button{
+        width: 100%;
         height: 40px;
     }
     #form input, #form textarea {
     padding-left: 4px;
 }
-    .settings-notifications {
-        padding-bottom: 35px;
-    }
-    .settings-notifications span {
-   flex-grow: 0;
-   padding-right: 20px;
-}
-    
-    #settings button {
-        margin-top: 8px;
-        height: 40px;
+
+
+    #settings > select {
+         width: 100% !important;
     }
     
+    .settings-button {
+        margin-top: 25px;
+    }
    
+/*
+    select option:disabled {
+	color: #808080;
+}
+*/
 
 }
 
@@ -477,5 +483,9 @@ width: 10%;
 
 .activity-list {   
     padding: 20px 20px 20px 0;
+    }
+    
+    .settings-notifications {
+        width: 60%;
     }
 }
