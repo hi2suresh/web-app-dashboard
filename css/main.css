@@ -354,6 +354,24 @@ width: 10%;
     flex-grow: 1;
     height: 30px;
 }
+
+#local-messages {
+    margin: 10px auto;
+    width: 80%;    
+}
+
+#local-messages > button {
+    width: 100%;
+    height: 30px;
+}
+
+#local-messages > p {
+/*    text-align: center;*/
+    font-family: 'Nunito', sans-serif;
+    margin: 5px auto;
+    color: blueviolet;
+}
+
 @media (min-width: 768px ){    
 
     #tabs {
@@ -479,6 +497,17 @@ width: 10%;
     height: 40px;
 }
    
+    #local-messages {
+    margin: 20px auto;
+}
+    
+     #local-messages > button {
+          height: 40px;
+    }
+    
+    #local-messages > p {
+        margin: 10px auto;
+    }
 /*
     select option:disabled {
 	color: #808080;

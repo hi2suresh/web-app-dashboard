@@ -336,7 +336,9 @@ sendButton.addEventListener('click', function(e){
         pElement.textContent = "Message sent successfully";
         pElement.style.color = 'green';
         //Store the message in the local storage
-        storeMessage(userMessage.value);
+        if(localStorageExists) {
+            storeMessage(userMessage.value);
+        }
         //Clear the input data
         user.value = "";
         userMessage.value = "";
@@ -358,39 +360,54 @@ function clearMessages(parent, selector){
      }
 }
 
-//Select Timezone
-//$('select').timezones();
+
 
 /*============================
 Code to handle Local storage
 ==============================*/
-let messages = JSON.parse(localStorage.getItem('storedMessages'));
-if(messages === null){
-    messages = [];
-}
-function storeMessage(msg){   
-    messages.push(msg);
-    localStorage.setItem("storedMessages", JSON.stringify(messages));
-}
+    let localStorageExists = false;
+    const showMessagesButton = document.getElementById('show-messages');
 
-function showMessages(){
-    const divMessages = document.getElementById('local-messages');
-    const msgs = JSON.parse(localStorage.getItem('storedMessages'));
-    //Remove the previously shown messages 
-    clearMessages(divMessages, '#local-messages p');
-    for(var i=0; i<msgs.length; i++){
-    var messageElement = document.createElement('p');
-    messageElement.style.color = 'blue';
-    messageElement.textContent = msgs[i];
-    divMessages.appendChild(messageElement);
+ function storeMessage(msg){
+        let messages = getStoredMessages();
+        messages.push(msg);
+        localStorage.setItem("storedMessages", JSON.stringify(messages));
     }
+
+    function showMessages(){
+        const divMessages = document.getElementById('local-messages');
+        const msgs = JSON.parse(localStorage.getItem('storedMessages'));
+        //Remove the previously shown messages 
+        clearMessages(divMessages, '#local-messages p');
+        for(var i=0; i<msgs.length; i++){
+        var messageElement = document.createElement('p');       
+        messageElement.textContent = `${i+1}. ${msgs[i]}`;
+        divMessages.appendChild(messageElement);
+        }
+    }
+
+function getStoredMessages() {
+    let messages = JSON.parse(localStorage.getItem('storedMessages'));
+    if(messages === null){
+        messages = [];
+    }
+   return messages;
 }
 
-const showMessagesButton = document.getElementById('show-messages');
-showMessagesButton.addEventListener('click', showMessages);
 
-const clearMessagesButton = document.getElementById('clear-messages');
-clearMessagesButton.addEventListener('click', function(){
-    const divMessages = document.getElementById('local-messages');
-    clearMessages(divMessages, '#local-messages p');
-});
+
+if (typeof localStorage !== 'undefined') {
+    localStorageExists = true;
+    showMessagesButton.addEventListener('click', showMessages);
+}
+
+else {
+    showMessagesButton.style.display = 'none';
+}
+   
+    
+//const clearMessagesButton = document.getElementById('clear-messages');
+//clearMessagesButton.addEventListener('click', function(){
+//    const divMessages = document.getElementById('local-messages');
+//    clearMessages(divMessages, '#local-messages p');
+//});
