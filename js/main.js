@@ -1,3 +1,27 @@
+//$(document).ready(function(){
+/*====================
+Global Variables
+=====================*/
+
+let localStorageExists = (typeof localStorage !== 'undefined') || false;
+const showMessagesButton = document.getElementById('show-messages');
+var $alert = $("<div id='alert1'></div>");
+var $p = $("<p>Alert1: How you doing</p>");
+
+//Chart global settings
+Chart.defaults.global.responsive = true;
+Chart.defaults.global.maintainAspectRatio = false;
+Chart.defaults.scale.gridLines.drawTicks = false;
+Chart.defaults.scale.ticks.beginAtZero = false;
+Chart.defaults.global.elements.line.tension = 0;
+//Chart.defaults.global.elements.line.backgroundColor = 'lightblue';
+Chart.defaults.global.elements.point.radius = 6;
+Chart.defaults.global.elements.point.backgroundColor = 'white';
+Chart.defaults.global.elements.point.borderColor = 'blue';
+
+var emailSettings = document.getElementById('email');
+var profileSettings = document.getElementById('profile');
+
 /*====================
 JS code to handle alert
 =====================*/
@@ -6,8 +30,7 @@ function addAlerts(alertElement) {
     alertElement.append($a);
     $("#alert").append(alertElement);
 }
-var $alert = $("<div id='alert1'></div>");
-var $p = $("<p>Alert1: How you doing</p>");
+
 $alert.append($p);
 addAlerts($alert);
 //Close the alert box
@@ -30,18 +53,6 @@ $(document).keyup(function (e) {
 /*============================
 Code to handle Charts/Graphs
 ==============================*/
-//Chart global settings
-Chart.defaults.global.responsive = true;
-Chart.defaults.global.maintainAspectRatio = false;
-Chart.defaults.scale.gridLines.drawTicks = false;
-Chart.defaults.scale.ticks.beginAtZero = false;
-Chart.defaults.global.elements.line.tension = 0;
-//Chart.defaults.global.elements.line.backgroundColor = 'lightblue';
-Chart.defaults.global.elements.point.radius = 6;
-Chart.defaults.global.elements.point.backgroundColor = 'white';
-Chart.defaults.global.elements.point.borderColor = 'blue';
-
-
 
 var ctx = document.getElementById("trafficChart").getContext("2d");
 if(window.screen.width > 767) {
@@ -297,25 +308,6 @@ const searchComplete = new autoComplete({
     }
 });
 
-/*============================
-Code to handle Toggle button
-==============================*/
-$('.toggle').toggles({
-  drag: true, // allow dragging the toggle between positions
-  click: true, // allow clicking on the toggle
-  text: {
-    on: 'ON', // text for the ON position
-    off: 'OFF' // and off
-  },
-  on: true, // is the toggle ON on init
-  animate: 250, // animation time (ms)
-  easing: 'swing', // animation transition easing function
-  checkbox: null, // the checkbox to toggle (for use in forms)
-  clicker: null, // element that can be clicked on to toggle. removes binding from the toggle itself (use nesting)
-  width: 50, // width used if not set in css
-  height: 20, // height if not set in css
-  type: 'select' // if this is set to 'select' then the select style toggle will be used
-});
 
 /*============================
 Code to handle Message user widget
@@ -360,13 +352,30 @@ function clearMessages(parent, selector){
      }
 }
 
+/*============================
+Code to handle Settings
+==============================*/
+
+function CreateToggleButtons(){
+    var $toggles = $('.toggle').toggles({
+      drag: true, // allow dragging the toggle between positions
+      click: true, // allow clicking on the toggle
+      text: {
+        on: 'ON', // text for the ON position
+        off: 'OFF' // and off
+      },
+      on: true, // is the toggle ON on init
+      width: 50, // width used if not set in css
+      height: 20, // height if not set in css
+      type: 'select' // if this is set to 'select' then the select style toggle will be used
+    });
+    return $toggles;
+}
 
 
 /*============================
 Code to handle Local storage
 ==============================*/
-    let localStorageExists = false;
-    const showMessagesButton = document.getElementById('show-messages');
 
  function storeMessage(msg){
         let messages = getStoredMessages();
@@ -376,13 +385,15 @@ Code to handle Local storage
 
     function showMessages(){
         const divMessages = document.getElementById('local-messages');
-        const msgs = JSON.parse(localStorage.getItem('storedMessages'));
-        //Remove the previously shown messages 
-        clearMessages(divMessages, '#local-messages p');
-        for(var i=0; i<msgs.length; i++){
-        var messageElement = document.createElement('p');       
-        messageElement.textContent = `${i+1}. ${msgs[i]}`;
-        divMessages.appendChild(messageElement);
+        const msgs = getStoredMessages();
+        if(msgs.length > 0){
+            //Remove the previously shown messages 
+            clearMessages(divMessages, '#local-messages p');
+            for(var i=0; i<msgs.length; i++){
+            var messageElement = document.createElement('p');       
+            messageElement.textContent = (i+1).toString() +". "+ msgs[i];//`${i+1}. ${msgs[i]}`;
+            divMessages.appendChild(messageElement);
+            }
         }
     }
 
@@ -394,20 +405,75 @@ function getStoredMessages() {
    return messages;
 }
 
-
-
-if (typeof localStorage !== 'undefined') {
-    localStorageExists = true;
-    showMessagesButton.addEventListener('click', showMessages);
+function restoreSettings(selectorToggleOn, selectorToggleoff, settingsValue){  
+    if(settingsValue == 'on'){
+        $(selectorToggleoff).removeClass('active');
+        $(selectorToggleOn).addClass('active');
+    }
+    else {
+        $(selectorToggleOn).removeClass('active');
+        $(selectorToggleoff).addClass('active');
+    }
 }
+
+if (localStorageExists) {
+    CreateToggleButtons();  
+    var timezone = document.getElementById('timezone');
+    var toggleButtons = localStorage.getItem('toggleButtonsInitiated');
+    //Initiate the toggle buttons if doesn't exist already
+    if(toggleButtons === null){
+        localStorage.setItem('toggleButtonsInitiated','true');
+        localStorage.setItem('email', 'on');
+        localStorage.setItem('profile', 'on');
+        localStorage.setItem('timezone',timezone.value);
+    }
+    
+    //Restore the settings 
+    else {
+        var $emailToggleOn = $('#email .toggle-on');
+        var $emailToggleOff = $('#email .toggle-off');
+        var settingsValue = localStorage.getItem('email');
+        restoreSettings($emailToggleOn,$emailToggleOff,settingsValue);
+        
+        var $profileToggleOn = $('#profile .toggle-on');
+        var $profileToggleOff = $('#profile .toggle-off');
+        settingsValue = localStorage.getItem('profile');
+        restoreSettings($profileToggleOn,$profileToggleOff,settingsValue);
+        
+        timezone.value = localStorage.getItem('timezone');
+    }
+    
+
+    showMessagesButton.addEventListener('click', showMessages);
+    
+  
+    emailSettings.addEventListener('click', function() {
+        if($('#email .toggle-on').hasClass('active')){
+            localStorage.setItem('email', 'on');
+        }
+        else {
+            localStorage.setItem('email', 'off');
+        }       
+    });
+    
+    profileSettings.addEventListener('click', function() {
+         if($('#profile .toggle-on').hasClass('active')){
+            localStorage.setItem('profile', 'on');
+        }
+        else {
+            localStorage.setItem('profile', 'off');
+        }
+      
+    });
+    
+    timezone.addEventListener('change', function() {
+         localStorage.setItem('timezone',timezone.value);
+    });
+}
+
 
 else {
     showMessagesButton.style.display = 'none';
 }
    
-    
-//const clearMessagesButton = document.getElementById('clear-messages');
-//clearMessagesButton.addEventListener('click', function(){
-//    const divMessages = document.getElementById('local-messages');
-//    clearMessages(divMessages, '#local-messages p');
-//});
+//});    
