@@ -131,22 +131,17 @@ $('.traffic-chart a').click(function(event){
 var obj = {
     type: 'bar',
     data: {
-        labels: ["S", "M", "T", "W", "TH", "F", "SU"]
-        , datasets: [{
-            label: 'DAILY TRAFFIC'
-            , data: [50, 75, 150, 100, 200, 175, 75]
-            , backgroundColor: [
-                        '#ADBFE6'
-                        , '#ADBFE6'
-                        , '#ADBFE6'
-                        , '#ADBFE6'
-                        , '#ADBFE6'
-                        , '#ADBFE6'
-                        , '#ADBFE6'
-                    ]
-            , borderWidth: 1
-            , fill: false
-                }]
+        labels: ["SA", "MO", "TU", "WE", "TH", "FR", "SU"],
+
+         datasets: [
+        {
+            data: [50, 75, 150, 100, 200, 175, 75]
+        },
+        {
+            data: [70,25,65,45,50,70,90,100]
+        }
+    
+    ]
     },
     options : {    
         maintainAspectRatio: true  
