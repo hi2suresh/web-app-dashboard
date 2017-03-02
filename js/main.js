@@ -191,7 +191,7 @@ Code to handle user members and recent activty
 var userData =  [ {
      
           userDetails : {
-            imgSource : 'images/user-pic.jpg',
+            imgSource : 'images/user-pic5.jpg',
             name : 'Victoria Berlin',
             email: 'Victoria@gmail.com',
             date : '1/10/2017'
@@ -204,7 +204,7 @@ var userData =  [ {
                  {
      
           userDetails : {
-            imgSource : 'images/user-pic.jpg',
+            imgSource : 'images/user-pic2.jpg',
             name : 'Chess Grandmasters',
             email: 'Chessmasters@yahoo.com',
             date : '1/10/2016'
@@ -216,7 +216,7 @@ var userData =  [ {
         },
            {      
         userDetails : {
-            imgSource : 'images/user-pic.jpg',
+            imgSource : 'images/user-pic3.jpg',
             name : 'Ray Hudson',
             email: 'Ray@gmail.com',
             date : '1/10/2015'
@@ -229,7 +229,7 @@ var userData =  [ {
         
            {      
         userDetails : {
-            imgSource : 'images/user-pic.jpg',
+            imgSource : 'images/user-pic4.jpg',
             name : 'Sid Lowe',
             email: 'sid@gmail.com',
             date : '1/10/2014'

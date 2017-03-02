@@ -34,7 +34,7 @@ h2, p, span {
    
 }
 
-#flex-header, #tabs, #traffic, #social-stats,#twitter-stats, #facebook-stats, #google-stats, .members-list,
+#flex-header, #tabs, #traffic, #social-stats, #social-stats > div, .members-list,
 .activity-list{
     display: -webkit-flex;
     display: flex;
@@ -232,7 +232,7 @@ width: 10%;
     padding: 10px;
 }
 
-#twitter-stats, #facebook-stats, #google-stats {   
+#social-stats > div{
     background: white;
     border: 1px solid black;
     border-radius: 5px;
@@ -244,19 +244,21 @@ width: 10%;
 
 
 #social-stats  img {
-    background: darkblue;
-    border-radius: 50%;
+/*    background: darkblue;*/
+/*    border-radius: 50%;*/
     width: 40px;
     height: 40px;
     margin-right: 20px;
     
 }
 
-#twitter-stats h2:nth-of-type(1), #facebook-stats h2:nth-of-type(1), #google-stats h2:nth-of-type(1) {
- color: darkblue;
+/*#twitter-stats h2:nth-of-type(1), #facebook-stats h2:nth-of-type(1), #google-stats h2:nth-of-type(1),.stats-color {*/
+.stats-color {
+ color: blueviolet;
 }
 
-#twitter-stats h2:nth-of-type(2), #facebook-stats h2:nth-of-type(2), #google-stats h2:nth-of-type(2) {
+/*#twitter-stats h2:nth-of-type(2), #facebook-stats h2:nth-of-type(2), #google-stats h2:nth-of-type(2).stats-font {*/
+.stats-font {
  font-size: 1.8em;
 }
 
@@ -372,6 +374,9 @@ width: 10%;
     color: blueviolet;
 }
 
+/*======================================
+Table styles
+=======================================*/
 @media (min-width: 768px ){    
 
     #tabs {
@@ -420,6 +425,7 @@ width: 10%;
     width: 50%;
     padding: 10px;
 }  
+  
 
 #members-activity{ 
     flex-flow: row wrap;    
@@ -518,6 +524,9 @@ width: 10%;
 
 @media (min-width: 980px ){    
 
+        #social-stats > div{
+       flex-basis: 0;
+    }
 .activity-list {   
     padding: 20px 20px 20px 0;
     }
