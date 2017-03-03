@@ -9,6 +9,7 @@ var $alert = $("<div id='alert1'></div>");
 var $p = $("<p>Alert1: How you doing</p>");
 
 //Chart global settings
+//Chart.defaults.global.legend = false;
 Chart.defaults.global.responsive = true;
 Chart.defaults.global.maintainAspectRatio = false;
 Chart.defaults.scale.gridLines.drawTicks = false;
@@ -144,7 +145,10 @@ var obj = {
     ]
     },
     options : {    
-        maintainAspectRatio: true  
+        maintainAspectRatio: true,
+        legend : {
+          display: false  
+        }
     }
     
 
