@@ -117,8 +117,8 @@ width: 10%;
 
 #search {
     background: lightgray;   
-    border-left: 1px solid red;
-    border-bottom: 1px solid red;    
+    border-left: 1px solid blueviolet;
+    border-bottom: 1px solid blueviolet;    
     text-align: right; 
     padding: 10px;
     flex-grow: 2;
@@ -132,6 +132,7 @@ width: 10%;
 }
 
 /*Alert styles*/
+
 #alert {
     display: flex;
     justify-content: space-around;
@@ -155,6 +156,15 @@ width: 10%;
     z-index: 1;
 }
 
+#alert-color {
+    width: 6px;
+    height: 6px;
+    background: lightgreen;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 16px;
+}
 .hidden {display:none;}
 
 /*Close button*/
@@ -168,7 +178,7 @@ width: 10%;
 }
 
 #alert1, #alert2 {
-    background: purple;
+    background: blueviolet;
     position: relative;
     border: 1px solid pink;
     width: 100%;
@@ -249,12 +259,10 @@ width: 10%;
     
 }
 
-/*#twitter-stats h2:nth-of-type(1), #facebook-stats h2:nth-of-type(1), #google-stats h2:nth-of-type(1),.stats-color {*/
 .stats-color {
  color: blueviolet;
 }
 
-/*#twitter-stats h2:nth-of-type(2), #facebook-stats h2:nth-of-type(2), #google-stats h2:nth-of-type(2).stats-font {*/
 .stats-font {
  font-size: 1.8em;
 }
@@ -354,6 +362,10 @@ width: 10%;
     height: 30px;
 }
 
+form button, #save {
+    background: blueviolet;
+}
+
 #local-messages {
     margin: 10px auto;
     width: 80%;    
@@ -422,7 +434,12 @@ Table styles
     width: 50%;
     padding: 10px;
 }  
+/*
+        #social-stats > div{
+       flex-basis: 0;
+    }
   
+*/
 
 #members-activity{ 
     flex-flow: row wrap;    
@@ -523,6 +540,9 @@ Table styles
 
         #social-stats > div{
        flex-basis: 0;
+    }
+    form textarea {
+        height: 56px;
     }
 .activity-list {   
     padding: 20px 20px 20px 0;

@@ -136,9 +136,11 @@ var obj = {
 
          datasets: [
         {
+           backgroundColor: 'blueviolet',
             data: [50, 75, 150, 100, 200, 175, 75]
         },
         {
+            backgroundColor: 'green',
             data: [70,25,65,45,50,70,90,100]
         }
     
@@ -166,8 +168,8 @@ obj = {
             , data: [20, 30, 50, 100]
             , backgroundColor: [
                         '#ADBFE6'
-                        , 'Red'
-                        , 'Green'
+                        , 'red'
+                        , 'green'
                         , 'blue'
 
                     ]
