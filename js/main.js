@@ -76,20 +76,20 @@ var labels = weeklyLabels;
 var data = weeklyData;
 
 var objTrafficChart =  {
-    type: 'line'
-    , data: {
+    type: 'line',
+     data: {
         labels: labels,
         datasets: [{            
              data: data,
              fill: true
                 }]
-    }
-    , options: {
+    },
+    options: {
         legend : {
           display: false  
         }
     }
-}
+};
 //Draw the default weekly traffic chart
 var trafficChart = new Chart(ctx, objTrafficChart);
 
@@ -154,36 +154,36 @@ var obj = {
     }
     
 
-}
+};
 
 
 ctx = document.getElementById("dailyTrafficChart").getContext("2d");
-var dailyTrafficChart = new Chart(ctx, obj);
+new Chart(ctx, obj);
 obj = {
-    type: 'doughnut'
-    , data: {
-        labels: ["Mobile", "Tablet", "Laptop", "Desktop"]
-        , datasets: [{
-            label: 'MOBILE USERS'
-            , data: [20, 30, 50, 100]
-            , backgroundColor: [
-                        '#ADBFE6'
-                        , 'red'
-                        , 'green'
-                        , 'blue'
+    type: 'doughnut',
+     data: {
+        labels: ["Mobile", "Tablet", "Laptop", "Desktop"],
+         datasets: [{
+            label: 'MOBILE USERS',
+             data: [20, 30, 50, 100],
+             backgroundColor: [
+                        '#ADBFE6',
+                         'red',
+                         'green',
+                         'blue',
 
                     ]
-                , }]
-    }
-    , options: {
+                 }]
+    },
+     options: {
              legend: {
             position: 'right'
         },
          maintainAspectRatio: true 
     }
-}
+};
 ctx = document.getElementById("mobileChart").getContext("2d");
-var mobileChart = new Chart(ctx, obj);
+new Chart(ctx, obj);
 
 /*===============================================
 Code to handle user members and recent activty
@@ -241,17 +241,17 @@ var userData =  [ {
           }
         }
          
-    ]
+    ];
 
 var $newMembers = $("#new-members");
 var $recentActvity = $("#recent-activity");
 for(var i=0; i<userData.length; i++){    
     var imgSource = userData[i].userDetails.imgSource;
-    var name = userData[i].userDetails.name;
+    var nameOfUser = userData[i].userDetails.name;
     var email = userData[i].userDetails.email;
     var activityName = userData[i].activityDetails.activityName;
     var actvityTime = userData[i].activityDetails.activityTime;
-    var $divElement = updateUserDetails('members-list', imgSource, name, email);    
+    var $divElement = updateUserDetails('members-list', imgSource, nameOfUser, email);    
     var $h2Date = $('<p></p>');
     $h2Date.text(userData[i].userDetails.date);
     $divElement.append($h2Date);    
@@ -296,7 +296,7 @@ for (let i=0; i< userData.length; i++){
     userNames.push(userData[i].userDetails.name);
 }
 
-const searchComplete = new autoComplete({
+ new autoComplete({
     selector: 'input[type="search"]',
     minChars: 1,
     source: function(term, suggest){
