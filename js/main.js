@@ -6,7 +6,7 @@ Global Variables
 let localStorageExists = (typeof localStorage !== 'undefined') || false;
 const showMessagesButton = document.getElementById('show-messages');
 var $alert = $("<div id='alert1'></div>");
-var $p = $("<p>Alert1: How you doing</p>");
+var $p = $("<p>Alert1: Possible Hailstorm Today</p>");
 
 //Chart global settings
 //Chart.defaults.global.legend = false;
@@ -179,7 +179,7 @@ obj = {
              legend: {
             position: 'right'
         },
-         maintainAspectRatio: true 
+         maintainAspectRatio: true
     }
 };
 ctx = document.getElementById("mobileChart").getContext("2d");
