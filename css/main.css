@@ -223,12 +223,24 @@ width: 10%;
     width: 100%;
     padding: 10px;
 }
-
 #mobile-canvas{
-    width: 80% !important;
-    height: 80% !important;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
 }
 
+#mobileChart{
+    width: 75% !important;
+    height: 75% !important;
+}
+
+
+ #mobile-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+/*    margin-right: 5px;*/
+}
 
 /*Social Stats Styles*/
 
@@ -438,7 +450,21 @@ Table styles
     width: 50%;
     padding: 10px;
 }  
-    
+    #mobileChart{
+    width: 80% !important;
+    height: 80% !important;
+}
+
+#mobile-legend li {
+    margin-bottom: 5px;
+}
+ #mobile-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+/*    margin-right: 3px;*/
+}
+
 
 
 #members-activity{ 

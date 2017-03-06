@@ -177,13 +177,15 @@ obj = {
     },
      options: {
              legend: {
-            position: 'right'
+//            position: 'right'
+             display : false
         },
          maintainAspectRatio: true
     }
 };
 ctx = document.getElementById("mobileChart").getContext("2d");
 var mobileChart = new Chart(ctx, obj);
+document.getElementById('mobile-legend').innerHTML = mobileChart.generateLegend();
 
 /*===============================================
 Code to handle user members and recent activty
