@@ -1,4 +1,4 @@
-//$(document).ready(function(){
+(function(){
 /*====================
 Global Variables
 =====================*/
@@ -158,7 +158,7 @@ var obj = {
 
 
 ctx = document.getElementById("dailyTrafficChart").getContext("2d");
-new Chart(ctx, obj);
+var dailyTrafficChart = new Chart(ctx, obj);
 obj = {
     type: 'doughnut',
      data: {
@@ -183,7 +183,7 @@ obj = {
     }
 };
 ctx = document.getElementById("mobileChart").getContext("2d");
-new Chart(ctx, obj);
+var mobileChart = new Chart(ctx, obj);
 
 /*===============================================
 Code to handle user members and recent activty
@@ -296,7 +296,7 @@ for (let i=0; i< userData.length; i++){
     userNames.push(userData[i].userDetails.name);
 }
 
- new autoComplete({
+ let autoFill = new autoComplete({
     selector: 'input[type="search"]',
     minChars: 1,
     source: function(term, suggest){
@@ -387,16 +387,23 @@ Code to handle Local storage
     function showMessages(){
         const divMessages = document.getElementById('local-messages');
         const msgs = getStoredMessages();
-        if(msgs.length > 0){
-            //Remove the previously shown messages 
-            clearMessages(divMessages, '#local-messages p');
+        var messageElement;
+        //Remove the previously shown messages 
+        clearMessages(divMessages, '#local-messages p');
+        if(msgs.length === 0){     
+                messageElement = document.createElement('p'); 
+                messageElement.textContent = 'There are no messages!';
+                divMessages.appendChild(messageElement);
+        } else {
             for(var i=0; i<msgs.length; i++){
-            var messageElement = document.createElement('p');       
-            messageElement.textContent = (i+1).toString() +". "+ msgs[i];//`${i+1}. ${msgs[i]}`;
-            divMessages.appendChild(messageElement);
+                messageElement = document.createElement('p');       
+                messageElement.textContent = (i+1).toString() +". "+ msgs[i];//`${i+1}. ${msgs[i]}`;
+                divMessages.appendChild(messageElement);
             }
-        }
-    }
+           }
+           window.scrollTo(0,document.body.scrollHeight);
+        }     
+    
 
 function getStoredMessages() {
     let messages = JSON.parse(localStorage.getItem('storedMessages'));
@@ -477,4 +484,4 @@ else {
     showMessagesButton.style.display = 'none';
 }
    
-//});    
+}());    
