@@ -22,6 +22,9 @@ Chart.defaults.global.elements.point.borderColor = 'blue';
 
 var emailSettings = document.getElementById('email');
 var profileSettings = document.getElementById('profile');
+var autoFill = {}; //For auto suggestions in the search
+var dailyTrafficChart = {}; //For daily chart
+
 
 /*====================
 JS code to handle alert
@@ -158,7 +161,7 @@ var obj = {
 
 
 ctx = document.getElementById("dailyTrafficChart").getContext("2d");
-var dailyTrafficChart = new Chart(ctx, obj);
+dailyTrafficChart = new Chart(ctx, obj);
 obj = {
     type: 'doughnut',
      data: {
@@ -298,7 +301,7 @@ for (let i=0; i< userData.length; i++){
     userNames.push(userData[i].userDetails.name);
 }
 
- let autoFill = new autoComplete({
+ autoFill = new autoComplete({
     selector: 'input[type="search"]',
     minChars: 1,
     source: function(term, suggest){
