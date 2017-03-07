@@ -1,4 +1,4 @@
-(function(){
+$(document).ready(function(){
 /*====================
 Global Variables
 =====================*/
@@ -486,4 +486,4 @@ else {
     showMessagesButton.style.display = 'none';
 }
    
-}());    
+});    
