@@ -266,13 +266,16 @@ width: 10%;
 }
 
 
+
 #social-stats  img {
-/*    background: darkblue;*/
-/*    border-radius: 50%;*/
+    border-radius: 50%;
+/*
     width: 40px;
     height: 40px;
+*/
     margin-right: 20px;
-    
+/*    padding: 15px;*/
+    background: #3266ba;    
 }
 
 .stats-color {

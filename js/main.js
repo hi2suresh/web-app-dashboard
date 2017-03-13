@@ -47,11 +47,13 @@ $('.dropdown').click(function (event) {
     event.stopPropagation();
     event.preventDefault();
     $('#myDropDown').toggle();
+    $('#alert-color').css('display', 'none');
 });
 //Close the alert dropdown on pressing "Esc" key
 $(document).keyup(function (e) {
     if (e.keyCode == 27) { // esc keycode
         $('#myDropDown').hide();
+        $('#alert-color').css('display', 'none');
     }
 });
 /*============================
