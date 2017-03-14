@@ -256,7 +256,7 @@ width: 10%;
 }
 
 #social-stats > div{
-    background: white;
+    background: #eff0f2;
     border: 1px solid black;
     border-radius: 5px;
     margin: 10px;
@@ -265,17 +265,21 @@ width: 10%;
     padding: 20px;
 }
 
+#social-stats > div > div {
+    padding: 20px;
+}
 
+.social-svg-icons {
+    border-radius: 50%;
+    background: #3266ba; 
+    text-align: center;
+    padding: 10%;
+    margin-right: 5%;    
+}
 
 #social-stats  img {
-    border-radius: 50%;
-/*
-    width: 40px;
-    height: 40px;
-*/
-    margin-right: 20px;
-/*    padding: 15px;*/
-    background: #3266ba;    
+    margin: auto;
+    display: block;
 }
 
 .stats-color {
@@ -569,9 +573,11 @@ Table styles
 
 @media (min-width: 980px ){    
 
-        #social-stats > div{
+/*
+    #social-stats > div{
        flex-basis: 0;
     }
+*/
     form textarea {
         height: 56px;
     }

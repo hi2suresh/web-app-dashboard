@@ -53,7 +53,7 @@ $('.dropdown').click(function (event) {
 $(document).keyup(function (e) {
     if (e.keyCode == 27) { // esc keycode
         $('#myDropDown').hide();
-        $('#alert-color').css('display', 'none');
+        
     }
 });
 /*============================
